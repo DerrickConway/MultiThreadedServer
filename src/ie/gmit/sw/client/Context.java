@@ -1,8 +1,14 @@
 package ie.gmit.sw.client;
 
-//getters + setters 
+import java.io.Serializable;
 
-public class Context {
+// bean class 
+public class Context implements Serializable
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String CON_FILE="src/ie/gmit/sw/client/conf.xml";
 	private String username;
 	private String server_host;
@@ -16,6 +22,7 @@ public class Context {
 				+ ", download_dir=" + download_dir + "]";
 	}
 	
+	//getters + setters 	
 	public String getUsername() {
 		return username;
 	}
