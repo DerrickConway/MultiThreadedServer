@@ -1,5 +1,5 @@
 package ie.gmit.sw.client;
-
+import java.util.Scanner;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -54,7 +54,7 @@ public class Runner {
 				s = tab.getString();
 				
 				
-				
+				//loop
 				while (true) {
 					if (s.equals("1")) {
 						if (ss == null) {
@@ -130,7 +130,7 @@ public class Runner {
 			String ipaddress = ctx.getServer_host();
 			
 			
-			// 1. creating a socket to connect to the server
+			// socket 
 			requestSocket = new Socket(ipaddress, 7777);
 			System.out.println("Connected to " + ipaddress + " in port 2004");
 			System.out.println();
@@ -266,6 +266,22 @@ public class Runner {
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	public class UI {
+		
+		
+		public String getString(){
+		Scanner tab = new Scanner(System.in);
+		return tab.nextLine();
+		}
+		
+		public int getInt(){
+		Scanner tab = new Scanner(System.in);
+		return tab.nextInt();
+		}
+		
+	}//UI
 
 	
 
