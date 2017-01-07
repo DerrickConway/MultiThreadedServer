@@ -4,10 +4,9 @@ import java.io.Serializable;
 
 // bean class 
 public class Context implements Serializable
+
 {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static final String CON_FILE="src/ie/gmit/sw/client/conf.xml";
 	private String username;
@@ -15,12 +14,7 @@ public class Context implements Serializable
 	private String server_port;
 	private String download_dir;
 	
-	
-	@Override
-	public String toString() {
-		return "Context [username=" + username + ", server_host=" + server_host + ", server_port=" + server_port
-				+ ", download_dir=" + download_dir + "]";
-	}
+
 	
 	//getters + setters 	
 	public String getUsername() {
@@ -53,4 +47,11 @@ public class Context implements Serializable
 	}
 	
 
+	
+	@Override
+	public String toString() {
+		return "Context [username=" + username + ", server_host=" + server_host + ", server_port=" + server_port
+				+ ", download_dir=" + download_dir + "]";
+	}
+	
 }//end main
