@@ -1,4 +1,7 @@
 package ie.gmit.sw.client;
+
+
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,28 +21,26 @@ public class Runner {
 	ObjectOutputStream out;
 	ObjectInputStream in;
 	//parser
-	Parser p;
+	Parseator p;
 	//objest config file  
 	Context ctx;
 	//message to server 
 	String message = "";
 	
-	//scanner caling from keyboard 
+	//scanner calling from keyboard 
 	UI tab = new UI(); 
 	String s = ""; 
 	Boolean flag = true;
 	
-	
-	
-	
-	
-	
-	
 	//Main method 
 	public static void main(String args[]) throws Throwable {
+		
+		//Instantiate runner 
 		Runner r = new Runner();
 		r.run();
 	}
+	
+	
 	
 
 	public void run() throws Throwable {
@@ -58,32 +59,26 @@ public class Runner {
 				while (true) {
 					if (s.equals("1")) {
 						if (ss == null) {
-							System.out.println("CONNECTED ");
+							System.out.println("CONNECTING ");
 							connection();
 							
 							System.out.println();
 						} else {
-							
 							System.out.println(" You have already connected");
-						
 						}
-						break;
-
-						
-						
+						break;	
 					} else if (s.equals("2")) {
 						if (ss == null) {
-							System.out.println("<<ERROR>>");
-							System.out.println("You need connect first>");
-							System.out.println();
-						} else {
+							System.out.println("Please Connect");
+						}
+						else {
 							getList();
 						}
-						break;
+						
+			break;
 					} else if (s.equals("3")) {
 						if (ss == null) {
-							System.out.println("<<ERROR>>");
-							System.out.println("You need connect first>");
+							System.out.println("Please connect ");
 							System.out.println();
 						} else {
 							downloadFile();
@@ -98,11 +93,11 @@ public class Runner {
 						
 						break;
 					}
-				}
-			}
+				}//end run 
+			}//end RUN while
+			
 		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			// e.printStackTrace();
+		
 		} finally {
 			// 4: Closing connection
 			try {
@@ -112,19 +107,16 @@ public class Runner {
 			} catch (IOException ioException) {
 				// ioException.printStackTrace();
 			}
-		}
-	}
+		}//Finally
+	}//end Run 
 
-	
-	
-	
-	
 
 	void connection() throws Throwable {
 		try {
 
 			// get context object from conf.xml
-			p = new Parser(new Context());
+			p = new Parseator(new Context());
+			
 			p.init();
 			ctx = p.getCtx();
 			String ipaddress = ctx.getServer_host();
@@ -144,22 +136,13 @@ public class Runner {
 			ss = "ok"; // used to ignore repeat connection
 
 		} catch (UnknownHostException unknownHost) {
-			System.err.println("You are trying to connect to an unknown host!");
+			System.err.println("unknown host!");
 		} catch (IOException ioException) {
 			// ioException.printStackTrace();
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 	void sendMessage(String msg) {
 		try {
@@ -171,19 +154,7 @@ public class Runner {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 	void getList() throws ClassNotFoundException, IOException {
 		sendMessage("list");
@@ -198,12 +169,6 @@ public class Runner {
 		System.out.println();
 	}
 
-	
-	
-	
-	
-	
-	
 	
 	void downloadFile() throws ClassNotFoundException, IOException {
 		sendMessage("download");
@@ -223,23 +188,12 @@ public class Runner {
 		receiveFile();
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	void receiveFile() throws IOException {
 		byte[] inputByte = null;
 		int length = 0;
+		//sendMessage(requestSocket.getInetAddress().getHostAddress());
 		try {
 
 			FileOutputStream fout = new FileOutputStream(new File(ctx.getDownload_dir() + in.readUTF()));
@@ -268,21 +222,22 @@ public class Runner {
 	}
 	
 	
-	public class UI {
-		
-		
+	
+	 class UI {
+		//
 		public String getString(){
+		@SuppressWarnings("resource")
 		Scanner tab = new Scanner(System.in);
 		return tab.nextLine();
 		}
 		
 		public int getInt(){
+		@SuppressWarnings("resource")
 		Scanner tab = new Scanner(System.in);
 		return tab.nextInt();
 		}
 		
 	}//UI
 
-	
 
 }

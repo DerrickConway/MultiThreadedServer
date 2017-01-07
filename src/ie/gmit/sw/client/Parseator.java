@@ -2,10 +2,11 @@ package ie.gmit.sw.client;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
-public class Parser {
+public class Parseator{
 	private Context ctx;
 
-	public Parser(Context ctx) {
+
+	public Parseator(Context ctx) {
 		super();
 		this.ctx = ctx;
 	}
@@ -21,6 +22,13 @@ public class Parser {
 
 	// method to parse an XML file into a DOM tree
 	public void init() throws Throwable{
+		
+		/* These three lines are part of JAXP (Java API for XML Processing) and are designed to
+		 * completely encapsulate how a DOM node tree is manufactured. The concrete classes that
+		 * are doing the actual work are part of the Apache Xerces project. JAXP shields us from
+		 * having to know and understand the complexity of Xerces through encapsulating the
+		 * process.
+		 */
 		//get the factory
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance(); 
 		//get a new instance 
