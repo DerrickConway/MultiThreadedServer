@@ -8,6 +8,7 @@ public class ServerRunner {
 	
 	
 	
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception {
 	
 		ServerSocket m_ServerSocket = new ServerSocket(7777, 100 , 
