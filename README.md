@@ -3,7 +3,10 @@ You are required to implement a multi-threaded file server and logging applicati
 
 ## How to Run
 ```
-
+-Download curl zip.
+-Extract the contents (if you have downloaded the correct version you should find curl.exe)
+-Place curl.exe in a folder where you keep your software (e.g. D:\software\curl\curl.exe)
+-To run curl from the command line. a) Right-hand-click on "My Computer" icon. b) Select Properties.
 ```
 
 ###UML 
