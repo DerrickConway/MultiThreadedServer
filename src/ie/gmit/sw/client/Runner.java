@@ -22,7 +22,7 @@ public class Runner {
 	ObjectInputStream in;
 	//parser
 	Parseator p;
-	//objest config file  
+	//object config file  
 	Context ctx;
 	//message to server 
 	String message = "";

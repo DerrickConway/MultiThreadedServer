@@ -18,6 +18,7 @@ public class RequestLogger implements Runnable {
 	private FileWriter fw;
 	
 	/** The q. */
+	@SuppressWarnings("rawtypes")
 	private BlockingQueue q;
 	 
 	
@@ -26,6 +27,7 @@ public class RequestLogger implements Runnable {
 	 *
 	 * @param q the q
 	 */
+	@SuppressWarnings("rawtypes")
 	public RequestLogger(BlockingQueue q) {
 		
 		this.q = q;
